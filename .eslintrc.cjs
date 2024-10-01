@@ -6,12 +6,12 @@ const config = {
   },
   "plugins": [
     "@typescript-eslint",
-    "drizzle"
+    "drizzle","check-file", "n"
   ],
   "extends": [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked"
+    "plugin:@typescript-eslint/stylistic-type-checked","prettier"
   ],
   "rules": {
     "@typescript-eslint/array-type": "off",
@@ -45,6 +45,26 @@ const config = {
           "db",
           "ctx.db"
         ]
+      }
+    ],
+    "prefer-arrow-callback": ["error"],
+    "prefer-template": ["error"],
+    "semi": ["error"],
+    "quotes": ["error", "double"],
+    "n/no-process-env": ["error"],
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "**/*.{ts,tsx}": "KEBAB_CASE"
+      },
+      {
+        "ignoreMiddleExtensions": true
+      }
+    ],
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/**/!^[.*": "KEBAB_CASE"
       }
     ],
     "drizzle/enforce-update-with-where": [
